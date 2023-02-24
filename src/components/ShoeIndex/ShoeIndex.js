@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -35,7 +35,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             Shoes
           </Breadcrumbs.Crumb>
         </Breadcrumbs>
-        <Spacer size={42} />
+        <MySpacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
@@ -47,20 +47,46 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+
+  @media(${QUERIES.tablet}) {
+    flex-wrap: wrap;
+    gap: 0px;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media(${QUERIES.tablet}) {
+    order: 1;
+    flex-basis: 100vw;
+  }
 `;
 
 const MainColumn = styled.div`
   flex: 1;
+
+  @media(${QUERIES.tablet}) {
+    order: 2;
+  }
 `;
 
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+`;
+
+const MySelect = styled(Select)`
+  @media(${QUERIES.tablet}) {
+    display: none;
+  }
+`;
+
+const MySpacer = styled(Spacer)`
+  @media(${QUERIES.tablet}) {
+    display: none;
+  }
 `;
 
 const Title = styled.h2`
