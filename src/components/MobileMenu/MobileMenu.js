@@ -16,22 +16,23 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content>
+      <Content aria-label="Mobile Menu">
         <Close className="mobile" onClick={onDismiss}>
           <Icon id="close" strokeWidth={2} />
         </Close>
+        <Filler/>
         <MyNav>
-          <a href="/sale" className="active">Sale</a><br/>
-          <a href="/new">New&nbsp;Releases</a><br/>
-          <a href="/men">Men</a><br/>
-          <a href="/women">Women</a><br/>
-          <a href="/kids">Kids</a><br/>
-          <a href="/collections">Collections</a><br/>
+          <a href="/sale" className="active">Sale</a>
+          <a href="/new">New&nbsp;Releases</a>
+          <a href="/men">Men</a>
+          <a href="/women">Women</a>
+          <a href="/kids">Kids</a>
+          <a href="/collections">Collections</a>
         </MyNav>
         <MyFooter>
-          <a href="/terms">Terms and Conditions</a><br/>
-          <a href="/privacy">Privacy Policy</a><br/>
-          <a href="/contact">Contact Us</a><br/>
+          <a href="/terms">Terms and Conditions</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact Us</a>
         </MyFooter>
       </Content>
     </Overlay>
@@ -56,19 +57,18 @@ const Content = styled(DialogContent)`
   min-width: 300px;
   height: 100vh;
   padding: 32px;
+
+  display: flex;
+  flex-direction: column;
 `
 
 const MyNav = styled.nav`
-  position: absolute;
-
-  top: 0px;
-  bottom: 0px;
-  left: 32px;
+  display: flex;
+  flex-direction: column;
 
   & a {
     min-width: 100%;
     max-height: 32px;
-    margin-bottom: 22px;
     text-decoration: none;
 
     color: ${COLORS.gray[900]};
@@ -76,7 +76,10 @@ const MyNav = styled.nav`
     line-height: 21px;
     font-weight: ${WEIGHTS.medium};
     text-transform: uppercase;
-    margin-bottom: 22px;
+    
+    :not(:last-child) {
+      margin-bottom: 22px;
+    }
   }
 
   .active {
@@ -84,11 +87,15 @@ const MyNav = styled.nav`
   }
 `
 
+const Filler = styled.div`
+  flex: 1;
+`
+
 const MyFooter = styled.footer`
-  position: absolute;
-  bottom: 32px;
-  left: 32px;
-  line-height: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end;
 
   & a {
     text-decoration: none;
@@ -96,13 +103,18 @@ const MyFooter = styled.footer`
     font-weight: ${WEIGHTS.normal};
     font-size: 14px;
     line-height: 16px;
+
+    :not(:last-child) {
+      margin-bottom: 14px;
+    }
   }
 `
 
 const Close = styled(UnstyledButton)`
   position: absolute;
-  top: 32px;
-  right: 32px;
+  padding: 16px;
+  top: 10px;
+  right: 0px;
   color: ${COLORS.gray[900]};
 `
 
