@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { QUERIES, COLORS, WEIGHTS } from '../../constants';
+import { QUERIES } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -45,7 +45,7 @@ const Overlay = styled(DialogOverlay)`
   bottom: 0;
   left: 0;
   right: 0;
-  background: hsl(0deg 0% 0% / 0.5);
+  background: hsl(var(--color-gray-700), 0.8);
   display: flex;
   justify-content: end;
   align-items: center;
@@ -71,10 +71,10 @@ const MyNav = styled.nav`
     max-height: 32px;
     text-decoration: none;
 
-    color: ${COLORS.gray[900]};
+    color: var(--color-gray-900);
     font-size: 18px;
     line-height: 21px;
-    font-weight: ${WEIGHTS.medium};
+    font-weight: var(--font-weight-medium);
     text-transform: uppercase;
     
     :not(:last-child) {
@@ -83,7 +83,7 @@ const MyNav = styled.nav`
   }
 
   .active {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `
 
@@ -99,8 +99,8 @@ const MyFooter = styled.footer`
 
   & a {
     text-decoration: none;
-    color: ${COLORS.gray[700]};
-    font-weight: ${WEIGHTS.normal};
+    color: var(--color-gray-700);
+    font-weight: var(--font-weight-normal);
     font-size: 14px;
     line-height: 16px;
 
@@ -115,7 +115,7 @@ const Close = styled(UnstyledButton)`
   padding: 16px;
   top: 10px;
   right: 0px;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
 `
 
 export default MobileMenu;

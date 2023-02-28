@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS, QUERIES } from '../../constants';
+import { QUERIES } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -91,7 +91,7 @@ const MySpacer = styled(Spacer)`
 
 const Title = styled.h2`
   font-size: 1.5rem;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--font-weight-medium);
 `;
 
 export default ShoeIndex;
